@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Percorso FSL – Triennio 2023/2026 · V ITIA C</title>
+<style>
+  :root {
+    --bg:       #f5f4f0;
+    --surface:  #ffffff;
+    --surface2: #f1efe9;
+    --border:   rgba(0,0,0,.10);
+    --border2:  rgba(0,0,0,.18);
+    --text:     #1a1a18;
+    --muted:    #6b6a64;
+    --hint:     #9e9d97;
+    --radius:   12px;
+    --radius-sm:8px;
+
+    --c-tech:   #534AB7;
+    --c-tech-l: #EEEDFE;
+    --c-tech-d: #3C3489;
+    --c-orient: #0F6E56;
+    --c-orient-l:#E1F5EE;
+    --c-orient-d:#085041;
+    --c-soft:   #993C1D;
+    --c-soft-l: #FAECE7;
+    --c-soft-d: #712B13;
+    --c-safety: #185FA5;
+    --c-safety-l:#E6F1FB;
+    --c-safety-d:#0C447C;
+    --c-media:  #3B6D11;
+    --c-media-l:#EAF3DE;
+    --c-media-d:#27500A;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg:      #181816;
+      --surface: #222220;
+      --surface2:#2a2a27;
+      --border:  rgba(255,255,255,.10);
+      --border2: rgba(255,255,255,.18);
+      --text:    #e8e6de;
+      --muted:   #9e9d97;
+      --hint:    #6b6a64;
+      --c-tech-l:#26215C;
+      --c-tech-d:#CECBF6;
+      --c-orient-l:#04342C;
+      --c-orient-d:#9FE1CB;
+      --c-soft-l:#4A1B0C;
+      --c-soft-d:#F5C4B3;
+      --c-safety-l:#042C53;
+      --c-safety-d:#B5D4F4;
+      --c-media-l:#173404;
+      --c-media-d:#C0DD97;
+    }
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    font-size: 15px;
+    line-height: 1.5;
+    min-height: 100vh;
+  }
+
+  /* ── Page shell ── */
+  .page { max-width: 900px; margin: 0 auto; padding: 2.5rem 1.5rem 4rem; }
+
+  /* ── Header ── */
+  .page-header { margin-bottom: 2.5rem; }
+  .school-tag {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 11px; font-weight: 500; letter-spacing: .06em;
+    text-transform: uppercase; color: var(--muted);
+    background: var(--surface2); border: 0.5px solid var(--border);
+    border-radius: 20px; padding: 4px 12px; margin-bottom: 12px;
+  }
+  h1 { font-size: 28px; font-weight: 600; color: var(--text); line-height: 1.2; }
+  .subtitle { font-size: 14px; color: var(--muted); margin-top: 6px; }
+
+  /* ── Stat cards ── */
+  .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 1.5rem 0 2rem; }
+  .stat {
+    background: var(--surface);
+    border: 0.5px solid var(--border);
+    border-radius: var(--radius);
+    padding: 14px 16px;
+    text-align: center;
+  }
+  .stat-n { font-size: 26px; font-weight: 600; color: var(--text); }
+  .stat-l { font-size: 11px; color: var(--muted); margin-top: 2px; }
+
+  /* ── Legend ── */
+  .legend { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 2rem; }
+  .leg {
+    display: flex; align-items: center; gap: 6px;
+    font-size: 12px; color: var(--muted);
+    background: var(--surface); border: 0.5px solid var(--border);
+    border-radius: 20px; padding: 4px 10px;
+  }
+  .leg-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+
+  /* ── Year block ── */
+  .year-block { margin-bottom: 2.5rem; }
+  .year-row {
+    display: flex; align-items: center; gap: 12px;
+    margin-bottom: 1rem;
+  }
+  .year-pill {
+    font-size: 12px; font-weight: 600;
+    padding: 5px 14px; border-radius: 20px;
+    white-space: nowrap; flex-shrink: 0;
+  }
+  .year-rule { flex: 1; height: 0.5px; background: var(--border2); }
+  .year-ore { font-size: 12px; color: var(--hint); white-space: nowrap; }
+
+  /* ── Cards grid ── */
+  .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 10px; }
+
+  .card {
+    background: var(--surface);
+    border: 0.5px solid var(--border);
+    border-radius: var(--radius);
+    padding: 12px;
+    cursor: pointer;
+    transition: border-color .15s, transform .1s, box-shadow .15s;
+    position: relative;
+    overflow: hidden;
+    text-align: left;
+  }
+  .card:hover {
+    border-color: var(--border2);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 14px rgba(0,0,0,.08);
+  }
+  .card:active { transform: translateY(0); }
+  .card-bar { position: absolute; top: 0; left: 0; right: 0; height: 3px; }
+  .card-mode { font-size: 10px; font-weight: 600; letter-spacing: .05em; text-transform: uppercase; margin: 6px 0 5px; opacity: .65; }
+  .card-title { font-size: 13px; font-weight: 500; color: var(--text); line-height: 1.3; margin-bottom: 5px; }
+  .card-org { font-size: 11px; color: var(--muted); margin-bottom: 9px; }
+  .card-footer { display: flex; align-items: center; justify-content: space-between; }
+  .badge {
+    font-size: 11px; font-weight: 600;
+    padding: 3px 9px; border-radius: 20px;
+  }
+  .card-chevron { font-size: 14px; color: var(--hint); }
+
+  /* ── Modal ── */
+  .modal-bg {
+    display: none; position: fixed; inset: 0;
+    background: rgba(0,0,0,.4);
+    align-items: center; justify-content: center;
+    z-index: 999; padding: 20px;
+  }
+  .modal-bg.open { display: flex; }
+  .modal {
+    background: var(--surface);
+    border: 0.5px solid var(--border2);
+    border-radius: var(--radius);
+    padding: 22px;
+    max-width: 440px; width: 100%;
+    max-height: 90vh; overflow-y: auto;
+    position: relative;
+  }
+  .modal-accent { height: 4px; border-radius: 2px; margin-bottom: 16px; }
+  .modal-close {
+    position: absolute; top: 14px; right: 16px;
+    background: none; border: none; cursor: pointer;
+    font-size: 20px; color: var(--muted); line-height: 1;
+  }
+  .modal-org { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: .05em; margin-bottom: 4px; }
+  .modal-title { font-size: 17px; font-weight: 600; color: var(--text); margin-bottom: 14px; }
+  .modal-rows { border-top: 0.5px solid var(--border); }
+  .modal-row {
+    display: flex; justify-content: space-between;
+    font-size: 13px; padding: 8px 0;
+    border-bottom: 0.5px solid var(--border);
+  }
+  .modal-row .lbl { color: var(--muted); }
+  .modal-row .val { font-weight: 500; }
+  .modal-desc {
+    font-size: 13px; color: var(--muted);
+    line-height: 1.65; margin-top: 14px;
+  }
+
+  /* ── Filters ── */
+  .filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 1.5rem; }
+  .filter-btn {
+    font-size: 12px; padding: 5px 14px; border-radius: 20px;
+    border: 0.5px solid var(--border);
+    background: var(--surface); color: var(--muted);
+    cursor: pointer; transition: background .12s, border-color .12s, color .12s;
+  }
+  .filter-btn:hover { border-color: var(--border2); color: var(--text); }
+  .filter-btn.active { border-color: transparent; color: var(--text); font-weight: 600; }
+
+  @media (max-width: 520px) {
+    h1 { font-size: 22px; }
+    .stats { grid-template-columns: 1fr 1fr; }
+    .stats .stat:last-child { grid-column: span 2; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="page-header">
+    <div class="school-tag">ITT Panetti-Pitagora · Bari</div>
+    <h1>Percorso FSL</h1>
+    <p class="subtitle">Classe V ITIA C &nbsp;·&nbsp; Triennio 2023 → 2026 &nbsp;·&nbsp; Tutor FSL: Gabriella Cantalice</p>
+  </div>
+
+  <div class="stats" id="stats"></div>
+
+  <div class="legend">
+    <div class="leg"><div class="leg-dot" style="background:#534AB7"></div>Informatica / Tecnica</div>
+    <div class="leg"><div class="leg-dot" style="background:#0F6E56"></div>Orientamento</div>
+    <div class="leg"><div class="leg-dot" style="background:#993C1D"></div>Soft Skills / Business</div>
+    <div class="leg"><div class="leg-dot" style="background:#185FA5"></div>Sicurezza / Normativa</div>
+    <div class="leg"><div class="leg-dot" style="background:#3B6D11"></div>Media / Comunicazione</div>
+  </div>
+
+  <div class="filters" id="filters"></div>
+  <div id="timeline"></div>
+
+</div>
+
+<!-- Modal -->
+<div class="modal-bg" id="modal-bg" onclick="if(event.target===this)closeModal()">
+  <div class="modal" id="modal-box">
+    <button class="modal-close" onclick="closeModal()">×</button>
+    <div id="modal-content"></div>
+  </div>
+</div>
+
+<script>
+const CATS = {
+  tech:   { label: 'Informatica / Tecnica',  color: '#534AB7', light: 'var(--c-tech-l)',   dark: 'var(--c-tech-d)'   },
+  orient: { label: 'Orientamento',            color: '#0F6E56', light: 'var(--c-orient-l)', dark: 'var(--c-orient-d)' },
+  soft:   { label: 'Soft Skills / Business',  color: '#993C1D', light: 'var(--c-soft-l)',   dark: 'var(--c-soft-d)'   },
+  safety: { label: 'Sicurezza / Normativa',   color: '#185FA5', light: 'var(--c-safety-l)', dark: 'var(--c-safety-d)' },
+  media:  { label: 'Media / Comunicazione',   color: '#3B6D11', light: 'var(--c-media-l)',  dark: 'var(--c-media-d)'  },
+};
+
+const DATA = [
+  {
+    year: '2023/24', label: 'Classe III',
+    items: [
+      { org:'ANFOS', title:'Sicurezza sui luoghi di lavoro', type:'safety', mode:'Online', ore:4,
+        desc:'Percorso e-learning con test finale e attestato di frequenza. Contenuti normativi con riferimento al D.Lgs 81/08.' },
+      { org:'IBM SkillBuild', title:'Corsi online IBM', type:'tech', mode:'Online', ore:'Var.',
+        desc:'Webinar e utilizzo della piattaforma IBM per la formazione. Certificazione finale in ambito informatico.' },
+      { org:'Sprint School', title:'Autoimprenditorialità', type:'soft', mode:'Misto', ore:15,
+        desc:'Sviluppo di idee imprenditoriali, creazione di startup e competizione finale. Focus su comunicazione, diritto e soft skills.' },
+      { org:'Accenture JobLab', title:'JobLab – Edizione I', type:'tech', mode:'Misto', ore:18,
+        desc:'Nozioni di linguaggi web con focus su JavaScript. 2h di formazione online + 16h in presenza con tutor aziendali esperti.' },
+    ]
+  },
+  {
+    year: '2024/25', label: 'Classe IV',
+    items: [
+      { org:'LV8 / Fondazione Vodafone', title:'Next Level – Competenze digitali', type:'tech', mode:'Misto', ore:8,
+        desc:'Learning app per competenze digitali. Rilascio di 3 OpenBadge in linea con il quadro europeo DigComp 2.2.' },
+      { org:'Mermec / AngelStar', title:'Orientamento post-scolastico', type:'orient', mode:'Presenza', ore:2,
+        desc:'Presentazione della joint venture internazionale specializzata in segnalamento ferroviario ERTMS in oltre 50 paesi.' },
+      { org:'Apulia Digital', title:'AI nella comunicazione', type:'media', mode:'Presenza', ore:16,
+        desc:'Lezioni frontali e applicazioni pratiche dell\'Intelligenza Artificiale per gestire piattaforme che utilizzano l\'IA.' },
+      { org:'Accenture JobLab', title:'JobLab – Edizione II', type:'tech', mode:'Misto', ore:18,
+        desc:'Approfondimento JavaScript e sviluppo web. 2h online + 16h in presenza con metodologia learning by doing.' },
+    ]
+  },
+  {
+    year: '2025/26', label: 'Classe V',
+    items: [
+      { org:'Open Fiber / ELIS', title:'Open Day Open Fiber', type:'orient', mode:'Online', ore:2,
+        desc:'Webinar sulle professioni e posizioni lavorative in Open Fiber, analisi CV efficace e simulazione colloquio selettivo.' },
+      { org:'Mermec / AngelStar', title:'Orientamento post-scolastico', type:'orient', mode:'Presenza', ore:2,
+        desc:'Seconda presentazione del gruppo multinazionale con focus sulle posizioni lavorative disponibili per profili tecnici.' },
+      { org:'Mind the Web (TIM / IDMO)', title:'Educazione ai media e IA', type:'media', mode:'Online', ore:8,
+        desc:'Ciclo di 4 webinar su bias cognitivi, disinformazione digitale, dieta mediatica e metodo scientifico nell\'era digitale.' },
+      { org:'AsterPuglia', title:'OrientaPuglia – X Edizione', type:'orient', mode:'Presenza', ore:5,
+        desc:'Fiera orientamento universitario e professionale con i principali atenei italiani ed esteri e scuole di specializzazione.' },
+      { org:'Fondazione Megamark', title:'Il Futuro ti assomiglia', type:'soft', mode:'Presenza', ore:5,
+        desc:'Seminario su autostima, gestione dello stress e orientamento. Relatori: Bocconi, Geopop, divulgatrici scientifiche.' },
+      { org:'Campus Bari', title:'Salone dello Studente', type:'orient', mode:'Presenza', ore:4,
+        desc:'Visita guidata, workshop e colloqui aziendali presso la Fiera del Levante di Bari.' },
+      { org:'Politecnico di Bari', title:'Orientamento PoliBa', type:'orient', mode:'Presenza', ore:2,
+        desc:'Presentazione dei dipartimenti, corsi di laurea, servizi e attività extracurricolari del Politecnico di Bari.' },
+      { org:'Auriga SpA', title:'Visita aziendale Auriga', type:'orient', mode:'Presenza', ore:5,
+        desc:'Visita alla sede barese del leader italiano nel software bancario omnicanale, presente in 60+ paesi con partnership globali.' },
+      { org:'CivicaMente / Oracle', title:'Oracle Web App Academy', type:'tech', mode:'Online', ore:16,
+        desc:'Formazione su Database Oracle e Oracle APEX: SQL, query delle tabelle, sviluppo di applicazioni web. 16h certificate.' },
+      { org:'CivicaMente / Leonardo', title:'In volo con Leonardo', type:'tech', mode:'Online', ore:25,
+        desc:'E-learning + Project Work sul settore aerospaziale. 6 unità + quiz + project work finale con certificazione inclusa.' },
+      { org:'Accenture JobLab', title:'JobLab – Edizione III', type:'tech', mode:'Misto', ore:18,
+        desc:'Terza edizione del percorso con focus JavaScript. Selezionati 10 studenti meritevoli su tutta la classe.' },
+      { org:'Sprint School', title:'Autoimprenditorialità soft skills', type:'soft', mode:'Misto', ore:6,
+        desc:'Startup, pitch, MVP, analisi di mercato, hackathon finale. Sviluppo soft skills: team working, problem solving, prioritizzazione.' },
+      { org:'Forze Armate (GPOI)', title:'Fidelis – Carriere militari', type:'orient', mode:'Presenza', ore:1,
+        desc:'Presentazione delle possibili carriere nelle Forze armate italiane per orientamento post-scolastico.' },
+      { org:'Università eCampus', title:'Orientamento eCampus', type:'orient', mode:'Presenza', ore:1,
+        desc:'Presentazione dei corsi di laurea dell\'università telematica eCampus.' },
+      { org:'Università Bona Sforza', title:'Orientamento Bona Sforza', type:'orient', mode:'Presenza', ore:1,
+        desc:'Presentazione dei corsi di laurea dell\'Università Bona Sforza di Bari.' },
+    ]
+  }
+];
+
+// ── Stats ──
+const totalOre = DATA.flatMap(y=>y.items).reduce((s,i)=>s+(typeof i.ore==='number'?i.ore:0),0);
+const totalAtt = DATA.flatMap(y=>y.items).length;
+document.getElementById('stats').innerHTML = `
+  <div class="stat"><div class="stat-n">3</div><div class="stat-l">anni scolastici</div></div>
+  <div class="stat"><div class="stat-n">${totalAtt}</div><div class="stat-l">attività svolte</div></div>
+  <div class="stat"><div class="stat-n">${totalOre}+</div><div class="stat-l">ore certificate</div></div>
+`;
+
+// ── Filters ──
+let activeFilter = 'all';
+const filterTypes = [
+  { key:'all',    label:'Tutte' },
+  { key:'tech',   label:'Informatica' },
+  { key:'orient', label:'Orientamento' },
+  { key:'soft',   label:'Soft Skills' },
+  { key:'safety', label:'Sicurezza' },
+  { key:'media',  label:'Media / IA' },
+];
+function renderFilters() {
+  document.getElementById('filters').innerHTML = filterTypes.map(f=>`
+    <button class="filter-btn ${activeFilter===f.key?'active':''}"
+      style="${activeFilter===f.key && f.key!=='all' ? `background:${CATS[f.key]?.light||'var(--surface2)'};border-color:${CATS[f.key]?.color||'transparent'}`:''}"
+      onclick="setFilter('${f.key}')">${f.label}</button>
+  `).join('');
+}
+function setFilter(k) { activeFilter=k; renderFilters(); renderTimeline(); }
+renderFilters();
+
+// ── Timeline ──
+function renderTimeline() {
+  const tl = document.getElementById('timeline');
+  tl.innerHTML = '';
+  DATA.forEach(yr => {
+    const items = activeFilter==='all' ? yr.items : yr.items.filter(i=>i.type===activeFilter);
+    if (!items.length) return;
+
+    const domCat = items.reduce((m,i)=>{ m[i.type]=(m[i.type]||0)+1; return m; }, {});
+    const best = Object.entries(domCat).sort((a,b)=>b[1]-a[1])[0][0];
+    const c = CATS[best];
+
+    const oreAnno = yr.items.reduce((s,i)=>s+(typeof i.ore==='number'?i.ore:0),0);
+
+    const block = document.createElement('div');
+    block.className = 'year-block';
+    block.innerHTML = `
+      <div class="year-row">
+        <div class="year-pill" style="background:${c.light};color:${c.dark}">${yr.label} &nbsp;·&nbsp; ${yr.year}</div>
+        <div class="year-rule"></div>
+        <span class="year-ore">${oreAnno}h totali · ${yr.items.length} attività</span>
+      </div>
+      <div class="cards" id="cards-${yr.year.replace('/','_')}"></div>
+    `;
+    tl.appendChild(block);
+
+    const grid = block.querySelector('.cards');
+    items.forEach(item => {
+      const cat = CATS[item.type];
+      const card = document.createElement('button');
+      card.className = 'card';
+      card.innerHTML = `
+        <div class="card-bar" style="background:${cat.color}"></div>
+        <div class="card-mode" style="color:${cat.color}">${item.mode}</div>
+        <div class="card-title">${item.title}</div>
+        <div class="card-org">${item.org}</div>
+        <div class="card-footer">
+          <span class="badge" style="background:${cat.light};color:${cat.dark}">${item.ore}h</span>
+          <span class="card-chevron">›</span>
+        </div>
+      `;
+      card.onclick = () => openModal(item);
+      grid.appendChild(card);
+    });
+  });
+}
+renderTimeline();
+
+// ── Modal ──
+function openModal(item) {
+  const cat = CATS[item.type];
+  document.getElementById('modal-content').innerHTML = `
+    <div class="modal-accent" style="background:${cat.color}"></div>
+    <div class="modal-org">${item.org}</div>
+    <div class="modal-title">${item.title}</div>
+    <div class="modal-rows">
+      <div class="modal-row"><span class="lbl">Anno scolastico</span><span class="val">${getYear(item)}</span></div>
+      <div class="modal-row"><span class="lbl">Modalità</span><span class="val">${item.mode}</span></div>
+      <div class="modal-row"><span class="lbl">Ore FSL</span><span class="val" style="color:${cat.color}">${item.ore}h</span></div>
+      <div class="modal-row"><span class="lbl">Categoria</span><span class="val">${cat.label}</span></div>
+    </div>
+    <div class="modal-desc">${item.desc}</div>
+  `;
+  document.getElementById('modal-bg').classList.add('open');
+}
+function closeModal() { document.getElementById('modal-bg').classList.remove('open'); }
+function getYear(item) {
+  for (const yr of DATA) if (yr.items.includes(item)) return yr.year + ' · ' + yr.label;
+  return '';
+}
+
+// Close on Escape
+document.addEventListener('keydown', e => { if (e.key==='Escape') closeModal(); });
+</script>
+</body>
+</html>
