@@ -37,12 +37,18 @@ const DATI = [
       { org: 'Open Fiber / ELIS', titolo: 'Open Day Open Fiber', tipo: 'orient', modalita: 'Online', ore: 2, desc: 'Webinar sulle professioni, analisi CV e simulazione colloquio selettivo.' },
       { org: 'Mermec / AngelStar', titolo: 'Orientamento post-scolastico', tipo: 'orient', modalita: 'Presenza', ore: 2, desc: 'Focus sulle posizioni lavorative disponibili per profili tecnici.' },
       { org: 'Mind the Web (TIM)', titolo: 'Educazione ai media e IA', tipo: 'media', modalita: 'Online', ore: 8, desc: 'Bias cognitivi, disinformazione digitale, dieta mediatica nell\'era digitale.' },
-      { org: 'AsterPuglia', titolo: 'OrientaPuglia – X Edizione', tipo: 'orient', modalita: 'Presenza', ore: 5, desc: 'Fiera orientamento universitario e professionale.' },
-      { org: 'Fondazione Megamark', titolo: 'Il Futuro ti assomiglia', tipo: 'soft', modalita: 'Presenza', ore: 5, desc: 'Seminario su autostima, gestione dello stress e orientamento.' },
-      { org: 'Politecnico di Bari', titolo: 'Orientamento PoliBa', tipo: 'orient', modalita: 'Presenza', ore: 2, desc: 'Presentazione dipartimenti, corsi di laurea e servizi.' },
-      { org: 'CivicaMente / Oracle', titolo: 'Oracle Web App Academy', tipo: 'tech', modalita: 'Online', ore: 16, desc: 'Formazione su Database Oracle e Oracle APEX.' },
-      { org: 'CivicaMente / Leonardo', titolo: 'In volo con Leonardo', tipo: 'tech', modalita: 'Online', ore: 25, desc: 'E-learning + Project Work sul settore aerospaziale.' },
-      { org: 'Sprint School', titolo: 'Autoimprenditorialità soft skills', tipo: 'soft', modalita: 'Misto', ore: 6, desc: 'Startup, pitch, MVP, analisi di mercato, hackathon finale.' },
+      { org: 'AsterPuglia', titolo: 'OrientaPuglia – X Edizione', tipo: 'orient', modalita: 'Presenza', ore: 5, desc: 'Fiera orientamento universitario e professionale con i principali atenei italiani ed esteri.' },
+      { org: 'Fondazione Megamark', titolo: 'Il Futuro ti assomiglia', tipo: 'soft', modalita: 'Presenza', ore: 5, desc: 'Seminario su autostima, gestione dello stress e orientamento. Relatori d\'eccezione tra cui Geopop.' },
+      { org: 'Campus Bari', titolo: 'Salone dello Studente', tipo: 'orient', modalita: 'Presenza', ore: 4, desc: 'Visita guidata, workshop e colloqui aziendali presso la Fiera del Levante di Bari.' },
+      { org: 'Politecnico di Bari', titolo: 'Orientamento PoliBa', tipo: 'orient', modalita: 'Presenza', ore: 2, desc: 'Presentazione dipartimenti, corsi di laurea e servizi del Politecnico di Bari.' },
+      { org: 'Auriga SpA', titolo: 'Visita aziendale Auriga', tipo: 'orient', modalita: 'Presenza', ore: 5, desc: 'Visita alla sede barese del leader italiano nel software bancario omnicanale, presente in oltre 60 paesi.' },
+      { org: 'CivicaMente / Oracle', titolo: 'Oracle Web App Academy', tipo: 'tech', modalita: 'Online', ore: 16, desc: 'Formazione su Database Oracle e Oracle APEX: SQL, query e sviluppo di applicativi web.' },
+      { org: 'CivicaMente / Leonardo', titolo: 'In volo con Leonardo', tipo: 'tech', modalita: 'Online', ore: 25, desc: 'E-learning + Project Work focalizzato sul settore aerospaziale e l\'innovazione tecnologica.' },
+      { org: 'Accenture JobLab', titolo: 'JobLab – Edizione III', tipo: 'tech', modalita: 'Misto', ore: 18, desc: 'Terza edizione del percorso con focus avanzato su JavaScript, riservato a 10 studenti meritevoli.' },
+      { org: 'Sprint School', titolo: 'Autoimprenditorialità soft skills', tipo: 'soft', modalita: 'Misto', ore: 6, desc: 'Startup, pitch, analisi di mercato e hackathon finale. Sviluppo di team working e problem solving.' },
+      { org: 'Forze Armate (GPOI)', titolo: 'Fidelis – Carriere militari', tipo: 'orient', modalita: 'Presenza', ore: 1, desc: 'Presentazione delle prospettive e delle modalità di carriera nelle Forze Armate italiane.' },
+      { org: 'Università eCampus', titolo: 'Orientamento eCampus', tipo: 'orient', modalita: 'Presenza', ore: 1, desc: 'Presentazione dell\'offerta formativa e dei corsi di laurea dell\'università telematica eCampus.' },
+      { org: 'Università Bona Sforza', titolo: 'Orientamento Bona Sforza', tipo: 'orient', modalita: 'Presenza', ore: 1, desc: 'Presentazione dei corsi di laurea e delle opportunità dell\'Università Bona Sforza di Bari.' },
     ]
   }
 ];
@@ -80,7 +86,7 @@ function renderFiltri() {
     let classeAttiva = filtroAttivo === f.chiave ? 'attivo' : '';
     let stileExtra = '';
     if (filtroAttivo === f.chiave && f.chiave !== 'all') {
-       stileExtra = `color:${CATEGORIE[f.chiave].colore};`; // Colore testo se attivo
+       stileExtra = `color:${CATEGORIE[f.chiave].colore};`;
     }
     html += `<button class="btn-filtro ${classeAttiva}" style="${stileExtra}" onclick="impostaFiltro('${f.chiave}')">${f.etichetta}</button>`;
   });
@@ -102,7 +108,6 @@ function renderTimeline() {
     let attivitaFiltrate = filtroAttivo === 'all' ? annoObj.attivita : annoObj.attivita.filter(att => att.tipo === filtroAttivo);
     if (attivitaFiltrate.length === 0) return;
 
-    // Categoria dominante per l'anno
     let conteggio = {};
     attivitaFiltrate.forEach(att => conteggio[att.tipo] = (conteggio[att.tipo] || 0) + 1);
     let tipoDominante = Object.entries(conteggio).sort((a, b) => b[1] - a[1])[0][0];
