@@ -3,48 +3,82 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FSL - V ITIA C</title>
-  
+  <title>FSL — V ITIA C · Panetti-Pitagora</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
-  
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="container">
+<!-- ── TOPBAR ─────────────────────────────────────── -->
+<nav class="topbar">
+  <div class="topbar-left">
+    <span class="topbar-logo">FSL</span>
+    <span class="topbar-sub">V ITIA C · Panetti-Pitagora</span>
+  </div>
+  <button class="btn-profilo" id="btn-profilo" onclick="toggleProfilo()">
+    <span class="avatar-cerchio">G</span>
+    <span>Chi sono</span>
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+  </button>
+</nav>
 
-  <header>
-    <div class="scuola-tag">ITT Panetti-Pitagora · Bari</div>
-    <h1>Percorso FSL</h1>
-    <p class="sottotitolo">Classe V ITIA C &nbsp;·&nbsp; Triennio 2023 → 2026 &nbsp;·&nbsp; Tutor: Gabriella Cantalice</p>
+<!-- ── PANNELLO PROFILO ────────────────────────────── -->
+<div class="overlay-profilo" id="overlay-profilo" onclick="if(event.target===this)toggleProfilo()"></div>
+<aside class="pannello-profilo" id="pannello-profilo">
+  <button class="profilo-chiudi" onclick="toggleProfilo()">×</button>
+  <div class="profilo-avatar">G</div>
+  <h2 class="profilo-nome">Il Tuo Nome</h2>
+  <p class="profilo-ruolo">Studente · V ITIA C</p>
+  <div class="profilo-tag-row">
+    <span class="profilo-tag">Web Dev</span>
+    <span class="profilo-tag">Laravel</span>
+    <span class="profilo-tag">JavaScript</span>
+    <span class="profilo-tag">PHP</span>
+  </div>
+  <div class="profilo-sezione">
+    <h3>Chi sono</h3>
+    <p>Sono uno studente del quinto anno all'ITT Panetti-Pitagora di Bari, indirizzo Informatica. Appassionato di sviluppo web, dal frontend al backend, con esperienza in HTML, CSS, JavaScript, PHP e Laravel.</p>
+  </div>
+  <div class="profilo-sezione">
+    <h3>Competenze principali</h3>
+    <ul class="profilo-lista">
+      <li>Sviluppo web full-stack (HTML, CSS, JS, PHP)</li>
+      <li>Framework Laravel & database SQL</li>
+      <li>Certificazione Cisco IT Essentials</li>
+      <li>Oracle APEX & SQL</li>
+    </ul>
+  </div>
+  <div class="profilo-sezione">
+    <h3>Contatti</h3>
+    <p style="color:var(--grigio);">✉ tua@email.com<br>🔗 linkedin.com/in/tuoprofilo</p>
+  </div>
+  <p class="profilo-nota">✏️ Modifica questo pannello direttamente nel file <code>index.html</code> nella sezione <strong>PANNELLO PROFILO</strong></p>
+</aside>
+
+<!-- ── HERO ───────────────────────────────────────── -->
+<div class="container">
+  <header class="hero">
+    <div class="hero-eyebrow">
+      <span class="dot-pulse"></span>
+      Triennio 2023 → 2026 · Tutor: Gabriella Cantalice
+    </div>
+    <h1 class="hero-titolo">Percorso<br><em>FSL</em></h1>
+    <p class="hero-sub">Formazione, orientamento e competenze digitali<br>accumulate durante i tre anni di specializzazione informatica.</p>
   </header>
 
   <div class="stats" id="stats"></div>
-
-  <div class="legenda">
-    <div class="leg-item"><div class="leg-pallino" style="background:#534AB7"></div>Informatica / Tecnica</div>
-    <div class="leg-item"><div class="leg-pallino" style="background:#0F6E56"></div>Orientamento</div>
-    <div class="leg-item"><div class="leg-pallino" style="background:#993C1D"></div>Soft Skills / Business</div>
-    <div class="leg-item"><div class="leg-pallino" style="background:#185FA5"></div>Sicurezza / Normativa</div>
-    <div class="leg-item"><div class="leg-pallino" style="background:#3B6D11"></div>Media / Comunicazione</div>
-  </div>
-
+  <div class="legenda" id="legenda"></div>
   <div class="filtri" id="filtri"></div>
-
   <div id="timeline"></div>
-
 </div>
 
-<div class="modal-sfondo" id="modal-sfondo" onclick="if(event.target === this) chiudiModal()">
-  <div class="modal-box">
-    <button class="modal-chiudi" onclick="chiudiModal()">×</button>
-    <div id="modal-contenuto"></div>
-  </div>
+<!-- ── SCHERMATA DETTAGLIO FULLSCREEN ─────────────── -->
+<div class="dettaglio-overlay" id="dettaglio-overlay">
+  <div class="dettaglio-inner" id="dettaglio-inner"></div>
 </div>
 
 <script src="script.js"></script>
-
 </body>
 </html>
