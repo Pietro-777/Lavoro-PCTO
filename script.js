@@ -14,38 +14,243 @@ const DATI = [
     anno: '2023/24',
     classe: 'Classe III',
     attivita: [
-      { org: 'A.N.FO.S.', titolo: 'Sicurezza sui luoghi di lavoro', tipo: 'safety', modalita: 'Online', ore: 4, desc: 'Formazione generale in materia di Salute e Sicurezza sul Lavoro (PCTO). Completato il 06-11-2023.' },
-      { org: 'IBM SkillsBuild', titolo: 'Web Development Fundamentals', tipo: 'tech', modalita: 'Online', ore: 'Var.', desc: 'Badge ufficiale IBM sulle fondamenta dello sviluppo web. Rilasciato il 31 Gennaio 2024.' },
-      { org: 'IBM SkillsBuild', titolo: 'Learn JavaScript Tutorial', tipo: 'tech', modalita: 'Online', ore: 12, desc: 'Corso in collaborazione con w3schools. Completato il 27 Maggio 2024.' },
-      { org: 'IBM SkillsBuild', titolo: 'Build Your First Web Pages (HTML/CSS)', tipo: 'tech', modalita: 'Online', ore: 14, desc: 'Corso in collaborazione con openclassrooms. Completato il 30 Maggio 2024.' },
-      { org: 'Sprint School', titolo: 'Autoimprenditorialità', tipo: 'soft', modalita: 'Misto', ore: 15, desc: 'Sviluppo di idee imprenditoriali, creazione di startup e competizione finale. Focus su comunicazione, diritto e soft skills.' }
+      { 
+        org: 'ANFOS', 
+        titolo: 'Sicurezza sui luoghi di lavoro', 
+        tipo: 'safety', 
+        modalita: 'Online', 
+        ore: 4, 
+        desc: 'Percorso e-learning con test finale e attestato di frequenza. Contenuti normativi con riferimento al D.Lgs 81/08.',
+        pdf: 'attestato_2.pdf' //
+      },
+      { 
+        org: 'IBM SkillsBuild', 
+        titolo: 'Web Development Fundamentals', 
+        tipo: 'tech', 
+        modalita: 'Online', 
+        ore: 'Var.', 
+        desc: 'Badge ufficiale IBM sulle fondamenta dello sviluppo web. Rilasciato il 31 Gennaio 2024.',
+        pdf: 'WebDevelopmentFundamentals_Badge20240201-29-fdqs14_2.pdf' //
+      },
+      { 
+        org: 'IBM SkillsBuild', 
+        titolo: 'Learn JavaScript Tutorial', 
+        tipo: 'tech', 
+        modalita: 'Online', 
+        ore: 12, 
+        desc: 'Corso completato in collaborazione con w3schools. Certificato rilasciato il 27 Maggio 2024.',
+        pdf: 'SkillsBuild.pdf' // Puoi rinominare il pdf w3schools così[cite: 21]
+      },
+      { 
+        org: 'IBM SkillsBuild', 
+        titolo: 'Build Your First Web Pages (HTML/CSS)', 
+        tipo: 'tech', 
+        modalita: 'Online', 
+        ore: 14, 
+        desc: 'Corso in collaborazione con openclassrooms sulle basi di HTML5 e CSS3. Completato il 30 Maggio 2024.',
+        pdf: 'SkillsBuild2_2.pdf' //[cite: 17]
+      },
+      { 
+        org: 'IBM Italia (Open P-TECH)', 
+        titolo: 'Attestato P.C.T.O. IBM Cloud', 
+        tipo: 'tech', 
+        modalita: 'Online', 
+        ore: 13, 
+        desc: 'Certificazione totale delle ore di formazione svolte sui moduli tecnologici IBM durante l\'anno scolastico.',
+        pdf: 'SkillsBuild2_2.pdf' //[cite: 14]
+      },
+      { 
+        org: 'Sprint School', 
+        titolo: 'Autoimprenditorialità', 
+        tipo: 'soft', 
+        modalita: 'Misto', 
+        ore: 15, 
+        desc: 'Sviluppo di idee imprenditoriali, creazione di startup e competizione finale. Focus su comunicazione, diritto e soft skills.' 
+      },
+      { 
+        org: 'Accenture JobLab', 
+        titolo: 'JobLab – Edizione I', 
+        tipo: 'tech', 
+        modalita: 'Misto', 
+        ore: 18, 
+        desc: 'Nozioni di linguaggi web con focus su JavaScript. 2h di formazione online + 16h in presenza con tutor aziendali esperti.' 
+      }
     ]
   },
   {
     anno: '2024/25',
     classe: 'Classe IV',
     attivita: [
-      { org: 'LV8 / Vodafone', titolo: 'Traveler, Newbie & Gamer Badges', tipo: 'tech', modalita: 'Online', ore: 8, desc: 'Badge ottenuti: Traveler (11 dic 2024), Newbie (8 gen 2025) e Gamer (13 gen 2025).' },
-      { org: 'Accenture JobLab', titolo: 'Digital – Sviluppo WEB', tipo: 'tech', modalita: 'Misto', ore: 20, desc: 'Percorso Job Lab Smart Education 2024/2025 completato con successo il 24 Febbraio 2025.' },
-      { org: 'Mermec / AngelStar', titolo: 'Orientamento post-scolastico', tipo: 'orient', modalita: 'Presenza', ore: 2, desc: 'Presentazione joint venture internazionale specializzata in segnalamento ferroviario ERTMS.' },
-      { org: 'Apulia Digital', titolo: 'AI nella comunicazione', tipo: 'media', modalita: 'Presenza', ore: 16, desc: 'Lezioni frontali e applicazioni pratiche dell\'Intelligenza Artificiale.' }
+      { 
+        org: 'LV8 / Vodafone', 
+        titolo: 'Next Level – Competenze digitali', 
+        tipo: 'tech', 
+        modalita: 'Misto', 
+        ore: 8, 
+        desc: 'Learning app per competenze digitali. Ottenuti i badge: Newbie (8 gen), Traveler (11 dic), Player (9 gen) e Gamer (13 gen) in linea con il DigComp 2.2.',
+        pdf: 'LV8(1)_2.pdf' // Collega a uno dei tuoi PDF di LV8 (es. Traveler o Player)[cite: 11, 15, 19, 20]
+      },
+      { 
+        org: 'Mermec / AngelStar', 
+        titolo: 'Orientamento post-scolastico', 
+        tipo: 'orient', 
+        modalita: 'Presenza', 
+        ore: 2, 
+        desc: 'Presentazione joint venture internazionale specializzata in segnalamento ferroviario ERTMS.' 
+      },
+      { 
+        org: 'Apulia Digital', 
+        titolo: 'AI nella comunicazione', 
+        tipo: 'media', 
+        modalita: 'Presenza', 
+        ore: 16, 
+        desc: 'Lezioni frontali e applicazioni pratiche dell\'Intelligenza Artificiale.' 
+      },
+      { 
+        org: 'Accenture JobLab', 
+        titolo: 'JobLab – Edizione II (Smart Education)', 
+        tipo: 'tech', 
+        modalita: 'Misto', 
+        ore: 20, 
+        desc: 'Approfondimento JavaScript e sviluppo web con metodologia learning by doing. Progetto PCTO da 20 ore completato il 24 Febbraio 2025.',
+        pdf: 'certificato_studente_pietrochiricallo2000@gmail.com.pdf' //
+      }
     ]
   },
   {
     anno: '2025/26',
     classe: 'Classe V',
     attivita: [
-      { org: 'Accenture JobLab', titolo: 'Digital - Sviluppo web', tipo: 'tech', modalita: 'Misto', ore: 20, desc: 'Percorso Job Lab Smart Education 2025/2026 completato con successo il 18 Marzo 2026.' },
-      { org: 'Cisco Networking Academy', titolo: 'IT Essentials 7', tipo: 'tech', modalita: 'Presenza', ore: 'Var.', desc: 'Certificazione Cisco IT Essentials completata presso l\'I.T.T. Panetti Pitagora il 14 Maggio 2026.' },
-      { org: 'Open Fiber / ELIS', titolo: 'Open Day Open Fiber', tipo: 'orient', modalita: 'Online', ore: 2, desc: 'Webinar sulle professioni, analisi CV e simulazione colloquio selettivo.' },
-      { org: 'AsterPuglia', titolo: 'OrientaPuglia – X Edizione', tipo: 'orient', modalita: 'Presenza', ore: 5, desc: 'Fiera orientamento universitario e professionale con i principali atenei italiani ed esteri.' },
-      { org: 'Fondazione Megamark', titolo: 'Il Futuro ti assomiglia', tipo: 'soft', modalita: 'Presenza', ore: 5, desc: 'Seminario su autostima, gestione dello stress e orientamento.' },
-      { org: 'Campus Bari', titolo: 'Salone dello Studente', tipo: 'orient', modalita: 'Presenza', ore: 4, desc: 'Visita guidata, workshop e colloqui aziendali presso la Fiera del Levante di Bari.' },
-      { org: 'Politecnico di Bari', titolo: 'Orientamento PoliBa', tipo: 'orient', modalita: 'Presenza', ore: 2, desc: 'Presentazione dipartimenti, corsi di laurea e servizi del Politecnico di Bari.' },
-      { org: 'Auriga SpA', titolo: 'Visita aziendale Auriga', tipo: 'orient', modalita: 'Presenza', ore: 5, desc: 'Visita alla sede barese del leader italiano nel software bancario omnicanale.' },
-      { org: 'CivicaMente / Oracle', titolo: 'Oracle Web App Academy', tipo: 'tech', modalita: 'Online', ore: 16, desc: 'Formazione su Database Oracle e Oracle APEX: SQL, query e sviluppo di applicativi web.' },
-      { org: 'CivicaMente / Leonardo', titolo: 'In volo con Leonardo', tipo: 'tech', modalita: 'Online', ore: 25, desc: 'E-learning + Project Work focalizzato sul settore aerospaziale e l\'innovazione tecnologica.' },
-      { org: 'Forze Armate (GPOI)', titolo: 'Fidelis – Carriere militari', tipo: 'orient', modalita: 'Presenza', ore: 1, desc: 'Presentazione delle prospettive e delle modalità di carriera nelle Forze Armate italiane.' }
+      { 
+        org: 'Open Fiber / ELIS', 
+        titolo: 'Open Day Open Fiber', 
+        tipo: 'orient', 
+        modalita: 'Online', 
+        ore: 2, 
+        desc: 'Webinar sulle professioni, analisi CV e simulazione colloquio selettivo.' 
+      },
+      { 
+        org: 'Mermec / AngelStar', 
+        titolo: 'Orientamento post-scolastico', 
+        tipo: 'orient', 
+        modalita: 'Presenza', 
+        ore: 2, 
+        desc: 'Focus sulle posizioni lavorative disponibili per profili tecnici.' 
+      },
+      { 
+        org: 'Mind the Web (TIM)', 
+        titolo: 'Educazione ai media e IA', 
+        tipo: 'media', 
+        modalita: 'Online', 
+        ore: 8, 
+        desc: 'Bias cognitivi, disinformazione digitale, dieta mediatica nell\'era digitale.' 
+      },
+      { 
+        org: 'AsterPuglia', 
+        titolo: 'OrientaPuglia – X Edizione', 
+        tipo: 'orient', 
+        modalita: 'Presenza', 
+        ore: 5, 
+        desc: 'Fiera orientamento universitario e professionale con i principali atenei italiani ed esteri.' 
+      },
+      { 
+        org: 'Fondazione Megamark', 
+        titolo: 'Il Futuro ti assomiglia', 
+        tipo: 'soft', 
+        modalita: 'Presenza', 
+        ore: 5, 
+        desc: 'Seminario su autostima, gestione dello stress e orientamento. Relatori d\'eccezione tra cui Geopop.' 
+      },
+      { 
+        org: 'Campus Bari', 
+        titolo: 'Salone dello Studente', 
+        tipo: 'orient', 
+        modalita: 'Presenza', 
+        ore: 4, 
+        desc: 'Visita guidata, workshop e colloqui aziendali presso la Fiera del Levante di Bari.' 
+      },
+      { 
+        org: 'Politecnico di Bari', 
+        titolo: 'Orientamento PoliBa', 
+        tipo: 'orient', 
+        modalita: 'Presenza', 
+        ore: 2, 
+        desc: 'Presentazione dipartimenti, corsi di laurea e servizi del Politecnico di Bari.' 
+      },
+      { 
+        org: 'Auriga SpA', 
+        titolo: 'Visita aziendale Auriga', 
+        tipo: 'orient', 
+        modalita: 'Presenza', 
+        ore: 5, 
+        desc: 'Visita alla sede barese del leader italiano nel software bancario omnicanale, presente in oltre 60 paesi.' 
+      },
+      { 
+        org: 'CivicaMente / Oracle', 
+        titolo: 'Oracle Web App Academy', 
+        tipo: 'tech', 
+        modalita: 'Online', 
+        ore: 16, 
+        desc: 'Formazione su Database Oracle e Oracle APEX: SQL, query e sviluppo di applicativi web.' 
+      },
+      { 
+        org: 'CivicaMente / Leonardo', 
+        titolo: 'In volo con Leonardo', 
+        tipo: 'tech', 
+        modalita: 'Online', 
+        ore: 25, 
+        desc: 'E-learning + Project Work focalizzato sul settore aerospaziale e l\'innovazione tecnologica.' 
+      },
+      { 
+        org: 'Accenture JobLab', 
+        titolo: 'JobLab – Edizione III', 
+        tipo: 'tech', 
+        modalita: 'Misto', 
+        ore: 20, 
+        desc: 'Terza edizione del percorso Smart Education con focus avanzato su JavaScript, completato con successo il 18 Marzo 2026.',
+        pdf: 'certificate_2.pdf' //
+      },
+      { 
+        org: 'Cisco Networking Academy', 
+        titolo: 'IT Essentials 7', 
+        tipo: 'tech', 
+        modalita: 'Presenza', 
+        ore: 'Var.', 
+        desc: 'Corso ufficiale IT Essentials completato con successo presso l\'I.T.T. Panetti Pitagora il 14 Maggio 2026.',
+        pdf: 'IT_Essentials_certificate_chiricallo-pietro-panettipitagora-edu-it_3c0239a6-0fa6-4aa7-9b0a-ddcdfd79c1d8_2.pdf' //
+      },
+      { 
+        org: 'Sprint School', 
+        titolo: 'Autoimprenditorialità soft skills', 
+        tipo: 'soft', 
+        modalita: 'Misto', 
+        ore: 6, 
+        desc: 'Startup, pitch, analisi di mercato e hackathon finale. Sviluppo di team working e problem solving.' 
+      },
+      { 
+        org: 'Forze Armate (GPOI)', 
+        titolo: 'Fidelis – Carriere militari', 
+        tipo: 'orient', 
+        modalita: 'Presenza', 
+        ore: 1, 
+        desc: 'Presentazione delle prospettive e delle modalità di carriera nelle Forze Armate italiane.' 
+      },
+      { 
+        org: 'Università eCampus', 
+        titolo: 'Orientamento eCampus', 
+        tipo: 'orient', 
+        modalita: 'Presenza', 
+        ore: 1, 
+        desc: 'Presentazione dell\'offerta formativa e dei corsi di laurea dell\'università telematica eCampus.' 
+      },
+      { 
+        org: 'Università Bona Sforza', 
+        titolo: 'Orientamento Bona Sforza', 
+        tipo: 'orient', 
+        modalita: 'Presenza', 
+        ore: 1, 
+        desc: 'Presentazione dei corsi di laurea e delle opportunità dell\'Università Bona Sforza di Bari.' 
+      }
     ]
   }
 ];
@@ -147,6 +352,19 @@ function renderTimeline() {
 // ── MODAL ────────────────────────────────────────────────────────
 function apriModal(att, annoObj) {
   let cat = CATEGORIE[att.tipo];
+  
+  // Genera il markup del bottone PDF solo se il file è specificato
+  let bottonePdf = '';
+  if (att.pdf) {
+    // Supponendo che i tuoi PDF siano dentro una cartella chiamata "pdf"
+    bottonePdf = `
+      <a href="pdf/${att.pdf}" target="_blank" class="modal-btn-pdf">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:8px; vertical-align:middle;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+        Visualizza Attestato PDF
+      </a>
+    `;
+  }
+
   document.getElementById('modal-contenuto').innerHTML = `
     <div class="modal-striscia" style="background:${cat.colore};"></div>
     <div class="modal-org">${att.org}</div>
@@ -158,6 +376,7 @@ function apriModal(att, annoObj) {
       <div class="modal-riga"><span class="etichetta">Categoria</span><span class="valore">${cat.label}</span></div>
     </div>
     <div class="modal-desc">${att.desc}</div>
+    ${bottonePdf}
   `;
   document.getElementById('modal-sfondo').classList.add('aperto');
 }
