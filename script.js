@@ -14,41 +14,38 @@ const DATI = [
     anno: '2023/24',
     classe: 'Classe III',
     attivita: [
-      { org: 'ANFOS', titolo: 'Sicurezza sui luoghi di lavoro', tipo: 'safety', modalita: 'Online', ore: 4, desc: 'Percorso e-learning con test finale e attestato di frequenza. Contenuti normativi con riferimento al D.Lgs 81/08.' },
-      { org: 'IBM SkillBuild', titolo: 'Corsi online IBM', tipo: 'tech', modalita: 'Online', ore: 'Var.', desc: 'Webinar e utilizzo della piattaforma IBM per la formazione. Certificazione finale in ambito informatico.' },
-      { org: 'Sprint School', titolo: 'Autoimprenditorialità', tipo: 'soft', modalita: 'Misto', ore: 15, desc: 'Sviluppo di idee imprenditoriali, creazione di startup e competizione finale. Focus su comunicazione, diritto e soft skills.' },
-      { org: 'Accenture JobLab', titolo: 'JobLab – Edizione I', tipo: 'tech', modalita: 'Misto', ore: 18, desc: 'Nozioni di linguaggi web con focus su JavaScript. 2h di formazione online + 16h in presenza con tutor aziendali esperti.' },
+      { org: 'A.N.FO.S.', titolo: 'Sicurezza sui luoghi di lavoro', tipo: 'safety', modalita: 'Online', ore: 4, desc: 'Formazione generale in materia di Salute e Sicurezza sul Lavoro (PCTO). Completato il 06-11-2023.' },
+      { org: 'IBM SkillsBuild', titolo: 'Web Development Fundamentals', tipo: 'tech', modalita: 'Online', ore: 'Var.', desc: 'Badge ufficiale IBM sulle fondamenta dello sviluppo web. Rilasciato il 31 Gennaio 2024.' },
+      { org: 'IBM SkillsBuild', titolo: 'Learn JavaScript Tutorial', tipo: 'tech', modalita: 'Online', ore: 12, desc: 'Corso in collaborazione con w3schools. Completato il 27 Maggio 2024.' },
+      { org: 'IBM SkillsBuild', titolo: 'Build Your First Web Pages (HTML/CSS)', tipo: 'tech', modalita: 'Online', ore: 14, desc: 'Corso in collaborazione con openclassrooms. Completato il 30 Maggio 2024.' },
+      { org: 'Sprint School', titolo: 'Autoimprenditorialità', tipo: 'soft', modalita: 'Misto', ore: 15, desc: 'Sviluppo di idee imprenditoriali, creazione di startup e competizione finale. Focus su comunicazione, diritto e soft skills.' }
     ]
   },
   {
     anno: '2024/25',
     classe: 'Classe IV',
     attivita: [
-      { org: 'LV8 / Vodafone', titolo: 'Next Level – Competenze digitali', tipo: 'tech', modalita: 'Misto', ore: 8, desc: 'Learning app per competenze digitali. Rilascio di 3 OpenBadge in linea con il quadro europeo DigComp 2.2.' },
+      { org: 'LV8 / Vodafone', titolo: 'Traveler, Newbie & Gamer Badges', tipo: 'tech', modalita: 'Online', ore: 8, desc: 'Badge ottenuti: Traveler (11 dic 2024), Newbie (8 gen 2025) e Gamer (13 gen 2025).' },
+      { org: 'Accenture JobLab', titolo: 'Digital – Sviluppo WEB', tipo: 'tech', modalita: 'Misto', ore: 20, desc: 'Percorso Job Lab Smart Education 2024/2025 completato con successo il 24 Febbraio 2025.' },
       { org: 'Mermec / AngelStar', titolo: 'Orientamento post-scolastico', tipo: 'orient', modalita: 'Presenza', ore: 2, desc: 'Presentazione joint venture internazionale specializzata in segnalamento ferroviario ERTMS.' },
-      { org: 'Apulia Digital', titolo: 'AI nella comunicazione', tipo: 'media', modalita: 'Presenza', ore: 16, desc: 'Lezioni frontali e applicazioni pratiche dell\'Intelligenza Artificiale.' },
-      { org: 'Accenture JobLab', titolo: 'JobLab – Edizione II', tipo: 'tech', modalita: 'Misto', ore: 18, desc: 'Approfondimento JavaScript e sviluppo web con metodologia learning by doing.' },
+      { org: 'Apulia Digital', titolo: 'AI nella comunicazione', tipo: 'media', modalita: 'Presenza', ore: 16, desc: 'Lezioni frontali e applicazioni pratiche dell\'Intelligenza Artificiale.' }
     ]
   },
   {
     anno: '2025/26',
     classe: 'Classe V',
     attivita: [
+      { org: 'Accenture JobLab', titolo: 'Digital - Sviluppo web', tipo: 'tech', modalita: 'Misto', ore: 20, desc: 'Percorso Job Lab Smart Education 2025/2026 completato con successo il 18 Marzo 2026.' },
+      { org: 'Cisco Networking Academy', titolo: 'IT Essentials 7', tipo: 'tech', modalita: 'Presenza', ore: 'Var.', desc: 'Certificazione Cisco IT Essentials completata presso l\'I.T.T. Panetti Pitagora il 14 Maggio 2026.' },
       { org: 'Open Fiber / ELIS', titolo: 'Open Day Open Fiber', tipo: 'orient', modalita: 'Online', ore: 2, desc: 'Webinar sulle professioni, analisi CV e simulazione colloquio selettivo.' },
-      { org: 'Mermec / AngelStar', titolo: 'Orientamento post-scolastico', tipo: 'orient', modalita: 'Presenza', ore: 2, desc: 'Focus sulle posizioni lavorative disponibili per profili tecnici.' },
-      { org: 'Mind the Web (TIM)', titolo: 'Educazione ai media e IA', tipo: 'media', modalita: 'Online', ore: 8, desc: 'Bias cognitivi, disinformazione digitale, dieta mediatica nell\'era digitale.' },
       { org: 'AsterPuglia', titolo: 'OrientaPuglia – X Edizione', tipo: 'orient', modalita: 'Presenza', ore: 5, desc: 'Fiera orientamento universitario e professionale con i principali atenei italiani ed esteri.' },
-      { org: 'Fondazione Megamark', titolo: 'Il Futuro ti assomiglia', tipo: 'soft', modalita: 'Presenza', ore: 5, desc: 'Seminario su autostima, gestione dello stress e orientamento. Relatori d\'eccezione tra cui Geopop.' },
+      { org: 'Fondazione Megamark', titolo: 'Il Futuro ti assomiglia', tipo: 'soft', modalita: 'Presenza', ore: 5, desc: 'Seminario su autostima, gestione dello stress e orientamento.' },
       { org: 'Campus Bari', titolo: 'Salone dello Studente', tipo: 'orient', modalita: 'Presenza', ore: 4, desc: 'Visita guidata, workshop e colloqui aziendali presso la Fiera del Levante di Bari.' },
       { org: 'Politecnico di Bari', titolo: 'Orientamento PoliBa', tipo: 'orient', modalita: 'Presenza', ore: 2, desc: 'Presentazione dipartimenti, corsi di laurea e servizi del Politecnico di Bari.' },
-      { org: 'Auriga SpA', titolo: 'Visita aziendale Auriga', tipo: 'orient', modalita: 'Presenza', ore: 5, desc: 'Visita alla sede barese del leader italiano nel software bancario omnicanale, presente in oltre 60 paesi.' },
+      { org: 'Auriga SpA', titolo: 'Visita aziendale Auriga', tipo: 'orient', modalita: 'Presenza', ore: 5, desc: 'Visita alla sede barese del leader italiano nel software bancario omnicanale.' },
       { org: 'CivicaMente / Oracle', titolo: 'Oracle Web App Academy', tipo: 'tech', modalita: 'Online', ore: 16, desc: 'Formazione su Database Oracle e Oracle APEX: SQL, query e sviluppo di applicativi web.' },
       { org: 'CivicaMente / Leonardo', titolo: 'In volo con Leonardo', tipo: 'tech', modalita: 'Online', ore: 25, desc: 'E-learning + Project Work focalizzato sul settore aerospaziale e l\'innovazione tecnologica.' },
-      { org: 'Accenture JobLab', titolo: 'JobLab – Edizione III', tipo: 'tech', modalita: 'Misto', ore: 18, desc: 'Terza edizione del percorso con focus avanzato su JavaScript, riservato a 10 studenti meritevoli.' },
-      { org: 'Sprint School', titolo: 'Autoimprenditorialità soft skills', tipo: 'soft', modalita: 'Misto', ore: 6, desc: 'Startup, pitch, analisi di mercato e hackathon finale. Sviluppo di team working e problem solving.' },
-      { org: 'Forze Armate (GPOI)', titolo: 'Fidelis – Carriere militari', tipo: 'orient', modalita: 'Presenza', ore: 1, desc: 'Presentazione delle prospettive e delle modalità di carriera nelle Forze Armate italiane.' },
-      { org: 'Università eCampus', titolo: 'Orientamento eCampus', tipo: 'orient', modalita: 'Presenza', ore: 1, desc: 'Presentazione dell\'offerta formativa e dei corsi di laurea dell\'università telematica eCampus.' },
-      { org: 'Università Bona Sforza', titolo: 'Orientamento Bona Sforza', tipo: 'orient', modalita: 'Presenza', ore: 1, desc: 'Presentazione dei corsi di laurea e delle opportunità dell\'Università Bona Sforza di Bari.' },
+      { org: 'Forze Armate (GPOI)', titolo: 'Fidelis – Carriere militari', tipo: 'orient', modalita: 'Presenza', ore: 1, desc: 'Presentazione delle prospettive e delle modalità di carriera nelle Forze Armate italiane.' }
     ]
   }
 ];
