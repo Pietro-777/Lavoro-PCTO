@@ -11,7 +11,6 @@
 </head>
 <body>
 
-<!-- ── TOPBAR ─────────────────────────────────────── -->
 <nav class="topbar">
   <div class="topbar-left">
     <span class="topbar-logo">FSL</span>
@@ -24,7 +23,6 @@
   </button>
 </nav>
 
-<!-- ── PANNELLO PROFILO ────────────────────────────── -->
 <div class="overlay-profilo" id="overlay-profilo" onclick="if(event.target===this)toggleProfilo()"></div>
 <aside class="pannello-profilo" id="pannello-profilo">
   <button class="profilo-chiudi" onclick="toggleProfilo()">×</button>
@@ -39,7 +37,7 @@
   </div>
   <div class="profilo-sezione">
     <h3>Chi sono</h3>
-    <p>Frequentato l'ultimo anno di Informatica all'ITT Panetti-Pitagora di Bari, sono particolarmente orientato di più verso la materia Sistemi e Reti. Mi affascina l'architettura delle infrastrutture digitali, pur mantenendo un set di competenze pratiche nello sviluppo di applicativi web con HTML, CSS, JS, PHP e Laravel.</p>
+    <p>Frequentato l'ultimo anno di Informatica all'ITT Panetti-Pitagora di Bari, sono particolarmente orientato di più verso la materia Sistemi e Reti. Mi affascina l'architettura delle infrastrutture digitali, pur mantenendo un set di competenze pratiche nello sviluppo di applicativi web con HTML, CSS, JS, PHP.</p>
   </div>
   <div class="profilo-sezione">
     <h3>Competenze principali</h3>
@@ -56,15 +54,21 @@
   </div>
 </aside>
 
-<!-- ── HERO ───────────────────────────────────────── -->
 <div class="container">
   <header class="hero">
-    <div class="hero-eyebrow">
-      <span class="dot-pulse"></span>
-      Triennio 2023 → 2026 · Tutor: Gabriella Cantalice
+    <div class="hero-tutors">
+      <div class="tutor-badge">
+        <span class="dot-pulse purple"></span>
+        Tutor FSL: <strong>Gabriella Cantalice</strong>
+      </div>
+      <div class="tutor-badge">
+        <span class="dot-pulse green"></span>
+        Tutor Orientamento: <strong>Gabriele Annarita</strong>
+      </div>
     </div>
+    <div class="hero-eyebrow">Triennio 2023 → 2026</div>
     <h1 class="hero-titolo">Percorso<br><em>FSL</em></h1>
-    <p class="hero-sub">Formazione, orientamento e competenze digitali<br>accumulate durante i tre anni di specializzazione informatica.</p>
+    <p class="hero-sub">Formazione, orientamento e competenze digitali accumulate durante i tre anni di specializzazione informatica.</p>
   </header>
 
   <div class="stats" id="stats"></div>
@@ -73,8 +77,7 @@
   <div id="timeline"></div>
 </div>
 
-<!-- ── SCHERMATA DETTAGLIO FULLSCREEN ─────────────── -->
-<div class="dettaglio-overlay" id="dettaglio-overlay">
+<div class="dettaglio-overlay" id="dettaglio-overlay" onclick="if(event.target===this)chiudiDettaglio()">
   <div class="dettaglio-inner" id="dettaglio-inner"></div>
 </div>
 
